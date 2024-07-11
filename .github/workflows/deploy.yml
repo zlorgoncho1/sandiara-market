@@ -1,20 +1,16 @@
-name: Deploy to Vercel
+name: Synchronisation avec le repository principal
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Install dependencies
-        run: npm install
-      - name: Build project
-        run: npm run build
-        env:
-          NEXT_PUBLIC_SALEOR_API_URL: ${{ secrets.API_URL }}
-          NEXT_PUBLIC_STOREFRONT_URL: ${{ secrets.STORE_URL }}
-      - name: Deploy to Vercel
-        run: vercel --prod --token ${{ secrets.VERCEL_TOKEN }} -y
+    - name: Checkout Repo B
+      uses: actions/checkout@v2
+    - name: Run Deployment Script
+      run: |
+        git remote add upstream https://github.com/DSsenegal/sandiara-market.git
+        git fetch upstream
+        git checkout feat/synchronize
+        git merge upstream/feat/synchronize
+        git push origin feat/synchronize
