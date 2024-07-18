@@ -14,7 +14,6 @@ export const PaymentMethods = () => {
 	if (changingBillingCountry || fetching || checkoutDeliveryMethodUpdate === "loading") {
 		return <PaymentSectionSkeleton />;
 	}
-
 	return (
 		<div className="gap-y-8">
 			{availablePaymentGateways.map((gateway) => {
