@@ -7,6 +7,8 @@ jobs:
     steps:
     - name: Checkout on code
       uses: actions/checkout@v2
+      env:
+        token: ${{ secrets.PAT }}
     - name: Run Synchronization Script
       env:
         GITHUB_TOKEN: ${{ secrets.PAT }}
