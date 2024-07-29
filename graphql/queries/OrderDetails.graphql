@@ -1,0 +1,25 @@
+query OrderDetails($id: ID!) {
+  order(id: $id) {
+    id
+    number
+    status
+    isShippingRequired
+    canFinalize
+    created
+    customerNote
+    paymentStatus
+    userEmail
+    isPaid
+    total {
+      gross {
+        currency
+        amount
+      }
+    }
+    transactions {
+      id
+      name
+      pspReference
+    }
+  }
+}

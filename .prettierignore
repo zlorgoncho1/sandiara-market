@@ -1,2 +1,5 @@
-pnpm-lock.yaml
 .next
+saleor/api.tsx
+pnpm-lock.yaml
+graphql/schema.graphql
+generated

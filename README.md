@@ -1,150 +1,144 @@
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fsaleor%2Fstorefront&env=NEXT_PUBLIC_SALEOR_API_URL&envDescription=Full%20Saleor%20GraphQL%20endpoint%20URL%2C%20eg%3A%20https%3A%2F%2Fstorefront1.saleor.cloud%2Fgraphql%2F&project-name=my-saleor-storefront&repository-name=my-saleor-storefront&demo-title=Saleor%20Next.js%20Storefront&demo-description=Starter%20pack%20for%20building%20performant%20e-commerce%20experiences%20with%20Saleor.&demo-url=https%3A%2F%2Fstorefront.saleor.io%2F&demo-image=https%3A%2F%2Fstorefront-d5h86wzey-saleorcommerce.vercel.app%2Fopengraph-image.png%3F4db0ee8cf66e90af)
-[![Storefront Demo](https://img.shields.io/badge/VIEW%20DEMO-DFDFDF?style=for-the-badge)](https://storefront.saleor.io)
-
-![Nextjs Storefront](./public/screenshot.png)
+<div align="center">
+<img width="150" alt="saleor-app-template" src="https://user-images.githubusercontent.com/4006792/215185065-4ef2eda4-ca71-48cc-b14b-c776e0b491b6.png">
+</div>
 
 <div align="center">
-  <h1>Saleor Next.js Storefront</h1>
-  Starter pack for building performant e-commerce experiences with <a href="https://github.com/saleor/saleor">Saleor</a>.
+  <h1>Saleor App Template</h1>
+</div>
+
+<div align="center">
+  <p>Bare-bones boilerplate for writing Saleor Apps with Next.js.</p>
 </div>
 
 <div align="center">
   <a href="https://saleor.io/">Website</a>
-  <span> • </span>
-  <a href="https://docs.saleor.io/docs/3.x">Docs</a>
-  <span> • </span>
-  <a href="https://github.com/orgs/saleor/projects/45/views/2">Roadmap</a>
-  <span> • </span>
-  <a href="https://twitter.com/getsaleor">Twitter</a>
-  <span> • </span>
-  <a href="https://discord.gg/H52JTZAtSH">Discord</a>
-  <span> • </span>
-  <a href="https://storefront.saleor.io/">Demo</a>
+  <span> | </span>
+  <a href="https://docs.saleor.io/docs/3.x/">Docs</a>
+  <span> | </span>
+    <a href="https://githubbox.com/saleor/saleor-app-template">CodeSandbox</a>
 </div>
 
-<br/>
+### What is Saleor App
 
-<div align="center">
+Saleor App is the fastest way of extending Saleor with custom logic using [asynchronous](https://docs.saleor.io/docs/3.x/developer/extending/apps/asynchronous-webhooks) and [synchronous](https://docs.saleor.io/docs/3.x/developer/extending/apps/synchronous-webhooks/key-concepts) webhooks (and vast Saleor's API). In most cases, creating an App consists of two tasks:
 
-[![Storefront Roadmap](https://img.shields.io/badge/ROADMAP-EFEFEF?style=for-the-badge)](https://github.com/orgs/saleor/projects/45/views/2)
-[![Discord Badge](https://dcbadge.vercel.app/api/server/H52JTZAtSH)](https://discord.gg/H52JTZAtSH)
+- Writing webhook's code executing your custom logic.
+- Developing configuration UI to be displayed in Saleor Dashboard via specialized view (designated in the App's manifest).
 
-</div>
+### What's included?
 
-## Features
+- 🚀 Communication between Saleor instance and Saleor App
+- 📖 Manifest with webhooks using custom query
 
-- **Next.js 14**: File-based routing, React 18, Fast Refresh, Image Optimization and more.
-- **App Router**: Uses React Server Components, Data Cache, and async components.
-- **TypeScript**: Strongly typed codebase and GraphQL payloads with strict mode.
-- **GraphQL best practices**: Uses GraphQL Codegen and `TypedDocumentString` to reduce boilerplate and bundle size.
-- **Customizable CSS**: TailwindCSS can be extended or replaced with an alternative CSS solution.
-- **Tooling included**: Comes with ESLint, Prettier, Husky, Lint Staged, and Codegen preconfigured.
+### Why Next.js
 
-**Global:**
+You can use any preferred technology to create Saleor Apps, but Next.js is among the most efficient for two reasons. The first is the simplicity of maintaining your API endpoints/webhooks and your apps' configuration React front-end in a single, well-organized project. The second reason is the ease and quality of local development and deployment.
 
-- Channel switcher and Geo detection (coming soon)
-- Dynamic menu
-- Hamburger menu
-- SEO data
+### Learn more about Apps
 
-**Checkout:**
-
-- Single page checkout (including login)
-- Portable to other frameworks (doesn't use Next.js components)
-- Adyen integration
-- Stripe integration
-- Customer address book
-- Vouchers and Gift Cards
-
-**Product catalog:**
-
-- Categories
-- Variant selection
-- Product attributes
-- Image optimization
-
-**My account:**
-
-- Order history (coming soon)
-- Order completion
-- Order details
-
-## Quickstart
-
-### 1. Create Saleor backend instance
-To quickly get started with the backend, use a free developer account at [Saleor Cloud](https://cloud.saleor.io/?utm_source=storefront&utm_medium=github).
-
-Alternatively you can [run Saleor locally using docker](https://docs.saleor.io/docs/3.x/setup/docker-compose?utm_source=storefront&utm_medium=github).
-
-### 2. Clone storefront
-
-#### [Option 1] Using Comand line tools
-
-Install or update to the latest version of the [Saleor CLI](https://docs.saleor.io/docs/3.x/cli) by running the following command:
-
-```bash
-npm i -g @saleor/cli@latest
-```
-
-Clone storefront, install dependencies, and connect with the provided Saleor instance hostname
-
-```bash
-saleor storefront create --url https://{SALEOR_HOSTNAME}/graphql/
-```
-
-#### [Option 2] Manual install
-
-Clone repository:
-```bash
-git clone https://github.com/saleor/storefront.git
-```
-
-Copy environment variables from `.env.example` to `.env`:
-
-```bash
-cp .env.example .env
-```
-
-Edit `.env` and set `NEXT_PUBLIC_SALEOR_API_URL` to your Saleor GraphQL endpoint URL, e.g., `https://example.saleor.cloud/graphql/`.
-
-Then, [install `pnpm`](https://pnpm.io/installation) and run the following command to install all dependencies in the repo:
-
-```bash
-pnpm i
-```
-
-
-## Payments
-
-Currently, Saleor Storefront supports payments via the [Saleor Adyen App](https://docs.saleor.io/docs/3.x/developer/app-store/apps/adyen). To install and configure the payment app go to the "Apps" section in the Saleor Dashboard (App Store is only available in Saleor Cloud).
-
-> WARNING:
-> To configure the Adyen App, you must have an account with [Adyen](https://www.adyen.com/).
-
-> NOTE:
-> Saleor Stripe App integration is a work in progress.
+[Apps guide](https://docs.saleor.io/docs/3.x/developer/extending/apps/key-concepts)
 
 ## Development
 
-To start the development server, run the following:
+### Requirements
 
-```bash
+Before you start, make sure you have installed:
+
+- [Node.js](https://nodejs.org/en/)
+- [pnpm](https://pnpm.io/)
+- [Saleor CLI](https://docs.saleor.io/docs/3.x/cli) - optional, but recommended
+
+### With CLI
+
+The easiest way to set up a Saleor app is by using the Saleor CLI.
+
+[Saleor CLI](https://github.com/saleor/saleor-cli) is designed to save you from the repetitive chores around Saleor development, including creating Apps. It will take the burden of spawning new apps locally, connecting them with Saleor environments, and establishing a tunnel for local development in seconds.
+
+[Full Saleor CLI reference](https://docs.saleor.io/docs/3.x/cli)
+
+If you don't have a (free developer) Saleor Cloud account, create one with the following command:
+
+```
+saleor register
+```
+
+You will also have to login with:
+
+```
+saleor login
+```
+
+Now you're ready to create your first App:
+
+```
+saleor app template [your-app-name]
+```
+
+In this step, Saleor CLI will:
+
+- clone this repository to the specified folder
+- install dependencies
+- ask you whether you'd like to install the app in the selected Saleor environment
+- create `.env` file
+- start the app in development mode
+
+Having your app ready, the final thing you want to establish is a tunnel with your Saleor environment. Go to your app's directory first and run:
+
+```
+saleor app tunnel
+```
+
+Your local application should be available now to the outside world (Saleor instance) for accepting all the events via webhooks.
+
+A quick note: the next time you come back to your project, it is enough to launch your app in a standard way (and then launch your tunnel as described earlier):
+
+```
 pnpm dev
 ```
 
-The app is now running at `http://localhost:3000`.
+### Without CLI
 
-> NOTE:
-> Saleor Storefront is a Next.js app. In case you are not familiar with Next.js, we recommend you to read the [Next.js documentation](https://nextjs.org/docs) (make sure you've selected "Using App Router" in the sidebar).
+1. Install the dependencies by running:
 
-#### GraphQL queries and mutations:
-
-After altering or creating new GraphQL queries in `gql` folder, you need to run the following command to generate types and javascript queries:
-
-```bash
-pnpm run generate
+```
+pnpm install
 ```
 
-### Preview content changes instantly (Draft Mode)
+2. Start the local server with:
 
-Visit `http://{your-host}/api/draft` to enable cookies that disable caching to preview catalog and content changes instantly. [Learn more about the Draft Mode in Next.js docs.](https://nextjs.org/docs/app/building-your-application/configuring/draft-mode)
+```
+pnpm dev
+```
+
+3. Expose local environment using tunnel:
+Use tunneling tools like [localtunnel](https://github.com/localtunnel/localtunnel) or [ngrok](https://ngrok.com/).
+
+4. Install the application in your dashboard:
+
+If you use Saleor Cloud or your local server is exposed, you can install your app by following this link:
+
+```
+[YOUR_SALEOR_DASHBOARD_URL]/apps/install?manifestUrl=[YOUR_APP_TUNNEL_MANIFEST_URL]
+```
+
+This template host manifest at `/api/manifest`
+
+You can also install application using GQL or command line. Follow the guide [how to install your app](https://docs.saleor.io/docs/3.x/developer/extending/apps/installing-apps#installation-using-graphql-api) to learn more.
+
+### Generated schema and typings
+
+Commands `build` and `dev` would generate schema and typed functions using Saleor's GraphQL endpoint. Commit the `generated` folder to your repo as they are necessary for queries and keeping track of the schema changes.
+
+[Learn more](https://www.graphql-code-generator.com/) about GraphQL code generation.
+
+### Storing registration data - APL
+
+During the registration process, Saleor API passes the auth token to the app. With this token App can query Saleor API with privileged access (depending on requested permissions during the installation).
+To store this data, app-template use a different [APL interfaces](https://github.com/saleor/saleor-app-sdk/blob/main/docs/apl.md).
+
+The choice of the APL is made using the `APL` environment variable. If the value is not set, FileAPL is used. Available choices:
+
+- `file`: no additional setup is required. Good choice for local development. It can't be used for multi tenant-apps or be deployed (not intended for production)
+- `upstash`: use [Upstash](https://upstash.com/) Redis as storage method. Free account required. It can be used for development and production and supports multi-tenancy. Requires `UPSTASH_URL` and `UPSTASH_TOKEN` environment variables to be set
+
+If you want to use your own database, you can implement your own APL. [Check the documentation to read more.](https://github.com/saleor/saleor-app-sdk/blob/main/docs/apl.md)
