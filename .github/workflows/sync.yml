@@ -6,8 +6,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout on code
-      uses: actions/checkout@v2
-      env:
+      uses: actions/checkout@v4
+      with:
         token: ${{ secrets.PAT }}
     - name: Run Synchronization Script
       env:
