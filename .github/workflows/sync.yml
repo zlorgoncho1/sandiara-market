@@ -1,0 +1,19 @@
+name: Synchronisation avec le repository principal
+on:
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout on code
+      uses: actions/checkout@v2
+    - name: Run Synchronization Script
+      env:
+        GITHUB_TOKEN: ${{ secrets.PAT }}
+      run: |
+        git config --global user.email "papamatardiop3@gmail.com"
+        git config --global user.name "zlorgoncho1"
+        git remote add upstream https://github.com/DSsenegal/app-snpay.git
+        git fetch upstream
+        git merge upstream/main --strategy-option theirs --allow-unrelated-histories
+        git push origin main
